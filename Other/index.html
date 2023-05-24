@@ -48,6 +48,20 @@
       text-decoration: none;
       color: blue;
     }
+    @media (max-width: 768px) {
+      /* 在小屏幕上调整样式 */
+      h1 {
+        font-size: 60px; /* 调整标题的字体大小为60像素 */
+      }
+
+      h2 {
+        font-size: 40px; /* 调整标题的字体大小为40像素 */
+      }
+
+      .link-container a {
+        font-size: 18px; /* 设置链接字体大小为18像素 */
+      }
+    }
   </style>
   <script>
     function adjustFontSize(size) {
