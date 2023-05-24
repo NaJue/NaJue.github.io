@@ -64,18 +64,63 @@
     }
   </style>
   <script>
-    function adjustFontSize(size) {
-      var links = document.querySelectorAll('#links a');
-      for (var i = 0; i < links.length; i++) {
-        links[i].style.fontSize = size + 'px';
+    function isMobileDevice() {
+      // 获取用户代理字符串
+      var userAgent = navigator.userAgent.toLowerCase();
+
+      // 常见的移动设备标识
+      var mobileDeviceKeywords = [
+        'android', 'webos', 'iphone', 'ipad',
+        'ipod', 'blackberry', 'windows phone'
+      ];
+
+      // 检查用户代理是否包含移动设备标识
+      for (var i = 0; i < mobileDeviceKeywords.length; i++) {
+        if (userAgent.indexOf(mobileDeviceKeywords[i]) !== -1) {
+          return true;
+        }
       }
+
+      return false;
     }
 
-    function adjustViewHeight(height) {
-      var container = document.getElementById('container');
-      container.style.height = height + 'vh';
-    }
+    // 在页面加载完成后执行判断并添加相应的类名到 <html> 元素
+    document.addEventListener('DOMContentLoaded', function() {
+      var htmlElement = document.documentElement;
+
+      if (isMobileDevice()) {
+        htmlElement.classList.add('mobile');
+      } else {
+        htmlElement.classList.add('desktop');
+      }
+    });
   </script>
+	/* 桌面设备样式规则 */
+.desktop h1 {
+  font-size: 100px;
+}
+
+.desktop h2 {
+  font-size: 80px;
+}
+
+.desktop .link-container a {
+  font-size: 24px;
+}
+
+/* 移动设备样式规则 */
+.mobile h1 {
+  font-size: 60px;
+}
+
+.mobile h2 {
+  font-size: 40px;
+}
+
+.mobile .link-container a {
+  font-size: 18px;
+}
+
 </head>
 <body>
   <div id="container">
