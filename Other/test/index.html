@@ -13,21 +13,31 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                height: 100vh;
+                min-height: 100vh;
             }
+            
             h1 {
                 color: black;
                 text-align: center;
             }
-            .box {
-                background-color: skyblue;
-                width: 200px;
-                height: 50px;
+            
+            .link-container {
+                background-color: #F0FFFF;
+                padding: 10px;
+                border-radius: 5px;
                 text-align: center;
-                line-height: 50px;
+                width: 200px;
             }
+
+            .link-container a {
+                display: block;
+                margin-bottom: 10px;
+                text-decoration: none;
+                color: blue;
+            }
+            
             @media only screen and (max-width: 768px) {
-                .box {
+                .link-container {
                     width: 100%;
                 }
             }
@@ -35,7 +45,7 @@
     </head>
     <body>
         <h1>正式</h1>
-        <div class="box">
+        <div class="link-container">
             <a href="#">链接1</a>
         </div>
     </body>
