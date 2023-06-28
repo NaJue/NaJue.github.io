@@ -108,7 +108,23 @@
     function toggleDarkMode() {
       var body = document.body;
       body.classList.toggle('dark-mode');
+
+      // 检查当前模式
+      var isDarkMode = body.classList.contains('dark-mode');
+
+      // 保存用户的偏好
+      localStorage.setItem('darkMode', isDarkMode);
     }
-  </script>
+
+    // 页面加载时检查用户的偏好并设置模式
+    window.addEventListener('DOMContentLoaded', function () {
+      var darkMode = localStorage.getItem('darkMode');
+      var body = document.body;
+
+      if (darkMode === 'true') {
+        body.classList.add('dark-mode');
+      }
+    });
+</script>
 </body>
 </html>
